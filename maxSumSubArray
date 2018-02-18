@@ -1,0 +1,14 @@
+class Solution(object):
+    def maxSum(self, nums):
+        """
+        Maximum Sum Subarray
+        :type nums: List[int]
+        :rtype: int
+        """
+        if not nums:
+          return None
+        max_current, max_global = nums[0], nums[0]
+        for i in range(1, len(nums)): 
+          max_current = max(nums[i], nums[i] + max_current)
+          max_global = max(max_global, max_current)
+        return max_global
